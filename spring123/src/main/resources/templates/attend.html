@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1>attend page</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr class="row">
+            <th class="col-md-1">#Id</th>
+            <th class="col-md-2">Mã sinh viên</th>
+            <th class="col-md-2">Tên sinh viên</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="attendanceDetail : ${attendanceDetailList}" class="row">
+            <td class="col-md-1" th:text="${attendanceDetail.id}"></td>
+            <td class="col-md-2 product-name" th:text="${attendanceDetail.student.maSinhVien}"></td>
+            <td class="col-md-2 product-name" th:text="${attendanceDetail.student.name}"></td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
